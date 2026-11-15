@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://de78u6sepvyir"]
+
+[ext_resource type="Script" uid="uid://d2xyn6u6bpri7" path="res://ball.gd" id="1_x8fbi"]
+[ext_resource type="AudioStream" uid="uid://cvk7rxvp0k2g8" path="res://ponghit.wav" id="2_41u45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsps"]
+
+[sub_resource type="Animation" id="Animation_x8fbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_41u45"]
+resource_name = "zoom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(5, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktgx5"]
+_data = {
+&"RESET": SubResource("Animation_x8fbi"),
+&"zoom": SubResource("Animation_41u45")
+}
+
+[node name="ball" type="StaticBody2D" unique_id=1476483223 groups=["ball"]]
+script = ExtResource("1_x8fbi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1384124509]
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1361035615]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_lpsps")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1329356096]
+visible = false
+position = Vector2(10, 10)
+enabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=95956771]
+libraries/ = SubResource("AnimationLibrary_ktgx5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2019594253]
+stream = ExtResource("2_41u45")
+pitch_scale = 0.5

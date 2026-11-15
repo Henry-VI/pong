@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bahfsuiaruf44"]
+
+[ext_resource type="FontFile" uid="uid://d25ef2rga442t" path="res://PressStart2P-Regular.ttf" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://de62w28r4rt8c" path="res://bullet.gd" id="1_v8qja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtl8c"]
+size = Vector2(64, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lpsps"]
+font = ExtResource("1_v7oki")
+font_size = 64
+
+[node name="bullet" type="Area2D" unique_id=276174668]
+script = ExtResource("1_v8qja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1424167270]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_rtl8c")
+
+[node name="Label" type="Label" parent="." unique_id=480765514]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+label_settings = SubResource("LabelSettings_lpsps")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

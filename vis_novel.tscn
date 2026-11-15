@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://ckijo0d2eorqv"]
+
+[ext_resource type="Script" uid="uid://c8fed2csmi487" path="res://vis_novel.gd" id="1_gk23i"]
+[ext_resource type="Texture2D" uid="uid://c0rm28if6jkqp" path="res://eventuallyyyyyy.png" id="2_gvoi2"]
+[ext_resource type="Texture2D" uid="uid://d2t0kcpjpam2m" path="res://paddle_portrait_player.png" id="3_5etkj"]
+[ext_resource type="FontFile" uid="uid://d25ef2rga442t" path="res://PressStart2P-Regular.ttf" id="4_5etkj"]
+[ext_resource type="AudioStream" uid="uid://d20emmd26lyya" path="res://redrock.mp3" id="5_05eje"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lpsps"]
+font = ExtResource("4_5etkj")
+font_size = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpsps"]
+
+[node name="vis_novel" type="Node2D" unique_id=1610529275]
+script = ExtResource("1_gk23i")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=866300679]
+offset_right = 1186.0
+offset_bottom = 701.0
+
+[node name="Eventuallyyyyyy" type="Sprite2D" parent="." unique_id=1058765474]
+modulate = Color(0.14935043, 0.14935043, 0.14935043, 0.30588236)
+position = Vector2(589.95935, 370.24997)
+scale = Vector2(0.3402963, 0.29899192)
+texture = ExtResource("2_gvoi2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=568659138]
+offset_left = 811.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.19793734, 0.19793719, 0.19793719, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359081622]
+position = Vector2(855, 377)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_5etkj")
+
+[node name="Label2" type="Label" parent="." unique_id=1834652833]
+offset_left = 897.0
+offset_top = 332.0
+offset_right = 1029.0
+offset_bottom = 344.0
+text = "Pong paddle"
+label_settings = SubResource("LabelSettings_lpsps")
+
+[node name="Label" type="Label" parent="." unique_id=798126004]
+offset_left = 818.0
+offset_top = 431.0
+offset_right = 1140.0
+offset_bottom = 491.0
+text = "Pong pong..."
+label_settings = SubResource("LabelSettings_lpsps")
+
+[node name="Button" type="Button" parent="." unique_id=510613071]
+offset_left = 818.0
+offset_top = 492.0
+offset_right = 870.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0.47788095, 0.47787976, 0.47788018, 1)
+theme_override_fonts/font = ExtResource("4_5etkj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lpsps")
+text = "Pong!"
+
+[node name="Button2" type="Button" parent="." unique_id=89796934]
+offset_left = 814.0
+offset_top = 521.0
+offset_right = 894.0
+offset_bottom = 552.0
+theme_override_colors/font_color = Color(0.47788095, 0.47787976, 0.47788018, 1)
+theme_override_fonts/font = ExtResource("4_5etkj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lpsps")
+text = "Ping!"
+
+[node name="Button3" type="Button" parent="." unique_id=1454232452]
+offset_left = 815.0
+offset_top = 548.0
+offset_right = 895.0
+offset_bottom = 579.0
+theme_override_colors/font_color = Color(0.8922473, 0, 0.20726472, 1)
+theme_override_fonts/font = ExtResource("4_5etkj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lpsps")
+text = "Again."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1534343577]
+stream = ExtResource("5_05eje")
+volume_db = -21.744
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

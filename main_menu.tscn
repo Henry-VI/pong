@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://s7wgnbiqw150"]
+
+[ext_resource type="Texture2D" uid="uid://c0rm28if6jkqp" path="res://eventuallyyyyyy.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://ckyu441m7cs1y" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="FontFile" uid="uid://d25ef2rga442t" path="res://PressStart2P-Regular.ttf" id="2_fu7sn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lpsps"]
+font = ExtResource("2_fu7sn")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_eogpm"]
+font = ExtResource("2_fu7sn")
+font_color = Color(0.5033745, 0.5033746, 0.5033746, 1)
+
+[node name="main menu" type="Control" unique_id=1872031139]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="Eventuallyyyyyy" type="Sprite2D" parent="." unique_id=1172438255]
+position = Vector2(694, 324)
+scale = Vector2(0.26129028, 0.2612903)
+texture = ExtResource("1_7vrkn")
+
+[node name="Label" type="Label" parent="." unique_id=474416191]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 35.0
+offset_right = 224.0
+offset_bottom = 67.0
+text = "PONG"
+label_settings = SubResource("LabelSettings_lpsps")
+
+[node name="Label2" type="Label" parent="." unique_id=2062752398]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 72.0
+offset_right = 135.0
+offset_bottom = 95.0
+text = "A JOURNEY"
+label_settings = SubResource("LabelSettings_eogpm")
+
+[node name="Button" type="Button" parent="." unique_id=922896290]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 238.0
+offset_right = 264.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0.22093776, 0.757703, 0.22551277, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 24
+text = "Begin."
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

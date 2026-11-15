@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://da8nnse7hu2wu"]
+
+[ext_resource type="Script" uid="uid://dxl7cj2afxctt" path="res://game.gd" id="1_7jktm"]
+[ext_resource type="PackedScene" uid="uid://bx8j7svrtatrd" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://de78u6sepvyir" path="res://ball.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bwg5ophgft0le" path="res://enemy.tscn" id="3_feb5d"]
+[ext_resource type="FontFile" uid="uid://d25ef2rga442t" path="res://PressStart2P-Regular.ttf" id="4_fc0e3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4flbx"]
+font = ExtResource("4_fc0e3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lpsps"]
+font = ExtResource("4_fc0e3")
+font_size = 64
+
+[sub_resource type="Animation" id="Animation_7jktm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tooltip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("other_tooltip:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eow3j"]
+resource_name = "absolutely fucking insane fucking animation holy shit and fuck"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("other_tooltip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ryrav"]
+resource_name = "tooltip"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tooltip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eow3j"]
+_data = {
+&"RESET": SubResource("Animation_7jktm"),
+&"absolutely fucking insane fucking animation holy shit and fuck": SubResource("Animation_eow3j"),
+&"tooltip": SubResource("Animation_ryrav")
+}
+
+[node name="Node2D" type="Node2D" unique_id=536173071]
+script = ExtResource("1_7jktm")
+
+[node name="player" parent="." unique_id=658830197 instance=ExtResource("1_80nbo")]
+position = Vector2(50, 100)
+
+[node name="ball" parent="." unique_id=1476483223 instance=ExtResource("2_e2o6t")]
+position = Vector2(543, 206)
+
+[node name="enemy" parent="." unique_id=506209039 instance=ExtResource("3_feb5d")]
+visible = false
+position = Vector2(1082, 100)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=18677484]
+offset_top = -483.0
+offset_right = 1152.0
+offset_bottom = 100.0
+color = Color(0.11674089, 0.116740905, 0.11674089, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1381824119]
+offset_top = 548.0
+offset_right = 1152.0
+offset_bottom = 1105.0
+color = Color(0.11674089, 0.116740905, 0.11674089, 1)
+
+[node name="other_tooltip" type="Label" parent="." unique_id=537049263]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 127.0
+offset_top = 338.0
+offset_right = 215.0
+offset_bottom = 402.0
+text = "W
+ASD"
+label_settings = SubResource("LabelSettings_4flbx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tooltip" type="Label" parent="." unique_id=591798610]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 633.0
+offset_top = 276.0
+offset_right = 953.0
+offset_bottom = 340.0
+text = "press space to shoot"
+label_settings = SubResource("LabelSettings_4flbx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player score" type="Label" parent="." unique_id=1911493321]
+offset_left = 545.0
+offset_top = 22.0
+offset_right = 609.0
+offset_bottom = 86.0
+text = "0"
+label_settings = SubResource("LabelSettings_lpsps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=129541999]
+offset_left = 1152.0
+offset_top = -483.0
+offset_right = 1830.0
+offset_bottom = 1105.0
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1169675472]
+offset_left = -678.0
+offset_top = -483.0
+offset_bottom = 1105.0
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1793055215]
+libraries/ = SubResource("AnimationLibrary_eow3j")
